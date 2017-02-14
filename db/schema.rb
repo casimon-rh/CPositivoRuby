@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208233134) do
+ActiveRecord::Schema.define(version: 20170214213939) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20170208233134) do
     t.string "idGoogle",  limit: 255
     t.string "Posicion",  limit: 255
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "commenter",  limit: 255
+    t.text     "body",       limit: 65535
+    t.integer  "article_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
 
   create_table "horarios", primary_key: "idHorarios", force: :cascade do |t|
     t.string  "Horario",         limit: 255
@@ -45,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170208233134) do
 
   add_index "solicitudes", ["Bancos_idBancos"], name: "fk_Solicitudes_Bancos_idx", using: :btree
 
+  add_foreign_key "comments", "articles"
   add_foreign_key "horarios", "bancos", column: "Bancos_idBancos", primary_key: "idBancos", name: "fk_Horarios_Bancos1"
   add_foreign_key "solicitudes", "bancos", column: "Bancos_idBancos", primary_key: "idBancos", name: "fk_Solicitudes_Bancos"
 end
