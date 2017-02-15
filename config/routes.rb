@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   get 'bancos/get/:id' => 'bancos#show'
   post 'bancos/save' => 'bancos#create'
   delete 'bancos/delete/:id' => 'bancos#destroy'
-
+  match 'bancos' => "bancos#options", via: :options
+  
 end
