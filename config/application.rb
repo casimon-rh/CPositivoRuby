@@ -22,6 +22,14 @@ module Blog
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Cors
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Allow-Headers' => %w{Content-Type Access-Control-Allow-Headers Authorization x-Requested-With}.join(","),
+      'Access-Control-Allow-Methods' => %w{GET POST DELETE OPTIONS}.join(","),
+      'Allow' => %w{GET POST DELETE OPTIONS}.join(",")
+    }
     
 
   end

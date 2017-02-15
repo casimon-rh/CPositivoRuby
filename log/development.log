@@ -4546,3 +4546,10 @@ Mysql2::Error (Can't connect to MySQL server on 'us-cdbr-azure-east-c.cloudapp.n
   Rendered /home/darknesstiller/.rvm/gems/ruby-2.1.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
   Rendered /home/darknesstiller/.rvm/gems/ruby-2.1.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
   Rendered /home/darknesstiller/.rvm/gems/ruby-2.1.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (69.3ms)
+
+
+Started GET "/bancos/getAll" for 127.0.0.1 at 2017-02-15 14:39:10 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (399.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by BancosController#index as HTML
+  [1m[35mBanco Load (1440.6ms)[0m  SELECT `bancos`.* FROM `bancos`
+Completed 200 OK in 1725ms (Views: 12.2ms | ActiveRecord: 1700.4ms)
