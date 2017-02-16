@@ -10,7 +10,7 @@ class BancosController < ActionController::API
 
     # GET /bancos/1
     def show
-        remder json: @banco
+        render json: @banco
     end
 
     # POST /bancos

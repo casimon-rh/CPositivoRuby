@@ -4,4 +4,5 @@ class Banco < ActiveRecord::Base
 
     has_many :horarios, :class_name => 'Horario'
     has_many :solicitudes, :class_name => 'Solicitude'
+    
 end
